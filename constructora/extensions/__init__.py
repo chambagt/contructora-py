@@ -1,3 +1,9 @@
-from flask_appbuilder import AppBuilder
+import os
 
-appbuilder = AppBuilder(update_perms=False)
+from flask_appbuilder import AppBuilder, SQLA
+from flask_migrate import Migrate
+
+APP_DIR = os.path.join(os.path.dirname(__file__), os.path.pardir)
+db = SQLA()
+migrate = Migrate()
+appbuilder = AppBuilder(db.session)

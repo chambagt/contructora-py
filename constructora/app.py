@@ -9,6 +9,7 @@ def create_app():
     app = ConstructoraApp(__name__)
 
     try:
+        app.config.from_object("config")
         app_initializer = app.config.get("APP_INITIALIZER", ConstructuraAppInitializer)(app)
         app_initializer.init_app()
         return app

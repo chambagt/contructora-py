@@ -1,3 +1,6 @@
 Flask==2.3.3
 Flask-AppBuilder==4.5.3
 Flask-SQLAlchemy==2.5.1
+Flask-Cors==5.0.0
+Flask-Migrate==4.1.0
+Flask-Session==0.8.0
