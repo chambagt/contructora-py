@@ -1,9 +1,6 @@
-from .empleados import Empleado
-from .clientes import Cliente
-from .proveedores import Proveedor
-from .materiales import Material
-from .mano_de_obra import ManoDeObra
-from .proyectos import Proyecto
-from .ordenes_compra import OrdenCompra
-from .orden_materiales import OrdenMaterial
-from .metas_tareas import MetaTarea
+from flask import current_app, Flask
+
+from constructora.app import create_app
+
+app: Flask = current_app
+

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=constructora
+    ports:
+      - "5432:5432"
+    container_name: db
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:

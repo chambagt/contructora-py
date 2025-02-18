@@ -1,11 +1,25 @@
-from django.db import models
+from typing import Any
 
-class Empleado(models.Model):
-    nombre = models.CharField(max_length=100)
-    puesto = models.CharField(max_length=100)
-    dpi = models.CharField(max_length=15, unique=True)
-    fecha_contratacion = models.DateField()
-    telefono = models.CharField(max_length=15)
+from flask_appbuilder import Model
+from sqlalchemy import Column, Integer, String, Date
 
-    def __str__(self):
-        return self.nombre
+
+class Empleado(Model):
+    __tablename__ = "empleado"
+    id = Column(Integer, primary_key=True)
+    nombre = Column(String(150))
+    puesto = Column(String(100))
+    dpi = Column(String(15), unique=True)
+    fecha_contratacion = Column(Date)
+    telefono = Column(String(15))
+
+    @property
+    def data(self) -> dict[str, Any]:
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "puesto": self.puesto,
+            "dpi": self.dpi,
+            "fecha_contratacion": self.fecha_contratacion,
+            "telefono": self.telefono
+        }
