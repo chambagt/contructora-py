@@ -27,3 +27,4 @@ AUTH_ROLE_PUBLIC = "Public"
 APP_NAME = "Constructora"
 APP_THEME = ""  # default
 SESSION_TYPE = "filesystem"
+# APP_INITIALIZER = 'constructora.initialization.ConstructuraAppInitializer'

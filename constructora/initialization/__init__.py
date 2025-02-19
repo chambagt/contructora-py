@@ -15,8 +15,12 @@ class ConstructuraAppInitializer:
 
     def init_view(self) -> None:
         from constructora.empleados.api import EmpleadosRestApi
+        from constructora.clientes.api import ClientesRestApi
+        from constructora.mano_obras.api import ManoObrasRestApi
 
         appbuilder.add_api(EmpleadosRestApi)
+        appbuilder.add_api(ClientesRestApi)
+        appbuilder.add_api(ManoObrasRestApi)
 
     def configure_middlewares(self) -> None:
         from flask_cors import CORS
@@ -30,8 +34,17 @@ class ConstructuraAppInitializer:
     def configure_session(self) -> None:
         Session(self.constructora_app)
 
+    def init_app_in_ctx(self):
+        appbuilder.init_app(self.constructora_app, db.session)
+        self.init_view()
+
+
     def init_app(self) -> None:
-        self.configure_session()
+        # self.configure_session()
         self.setup_db()
         self.configure_middlewares()
-        self.init_view()
+
+        with self.constructora_app.app_context():
+            self.init_app_in_ctx()
+
+
