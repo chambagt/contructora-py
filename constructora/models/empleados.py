@@ -20,6 +20,6 @@ class Empleado(Model):
             "nombre": self.nombre,
             "puesto": self.puesto,
             "dpi": self.dpi,
-            "fecha_contratacion": self.fecha_contratacion,
+            "fecha_contratacion": self.fecha_contratacion.isoformat() if self.fecha_contratacion else None,
             "telefono": self.telefono
         }
