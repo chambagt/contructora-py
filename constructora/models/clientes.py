@@ -1,7 +1,7 @@
 from typing import Any
 
 from flask_appbuilder import Model
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String
 
 
 class Cliente(Model):

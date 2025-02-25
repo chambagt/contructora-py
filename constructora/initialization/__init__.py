@@ -17,10 +17,15 @@ class ConstructuraAppInitializer:
         from constructora.empleados.api import EmpleadosRestApi
         from constructora.clientes.api import ClientesRestApi
         from constructora.mano_obras.api import ManoObrasRestApi
+        from constructora.exc_zanja.api import ExcZanjaRestApi, \
+            ExcZanjaPlantillaRestApi, ExcZanjaItemRestApi
 
         appbuilder.add_api(EmpleadosRestApi)
         appbuilder.add_api(ClientesRestApi)
         appbuilder.add_api(ManoObrasRestApi)
+        appbuilder.add_api(ExcZanjaRestApi)
+        appbuilder.add_api(ExcZanjaPlantillaRestApi)
+        appbuilder.add_api(ExcZanjaItemRestApi)
 
     def configure_middlewares(self) -> None:
         from flask_cors import CORS
@@ -37,7 +42,6 @@ class ConstructuraAppInitializer:
     def init_app_in_ctx(self):
         appbuilder.init_app(self.constructora_app, db.session)
         self.init_view()
-
 
     def init_app(self) -> None:
         # self.configure_session()

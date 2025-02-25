@@ -68,6 +68,8 @@ class EmpleadosRestApi(BaseApi):
 
             self.datamodel.session.commit()
 
-            return { "message": record }
+            return {
+                "message": record
+            }
         except ValidationError as error:
             return error.messages
