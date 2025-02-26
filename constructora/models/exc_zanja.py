@@ -25,8 +25,8 @@ class ExcZanja(Model):
     exc_zanja_plantilla = relationship("ExcZanjaPlantilla")
     unidad_metrica = Column(String(5))
     cantidad = Column(Float(3))
-    mat = Column(Float(3))
-    mo = Column(Float(3))
+    materiales = Column(Float(3))
+    mano_obra = Column(Float(3))
 
     @classmethod
     def from_dict(cls, data):
@@ -56,3 +56,4 @@ class ExcZanjaItem(Model):
     valor_galon = Column(Float(3))
     valor_dist = Column(Float(3))
     factor = Column(Float(3))
+    grupo = Column(String)

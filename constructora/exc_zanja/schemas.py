@@ -15,8 +15,8 @@ class ExcZanjaPostSchema(Schema):
     exc_zanja_plantilla_id = fields.Integer(required=True)
     unidad_metrica = fields.String()
     cantidad = fields.Float()
-    mat = fields.Float()
-    mo = fields.Float()
+    materiales = fields.Float()
+    mano_obra = fields.Float()
 
     # Optionals
     familia = fields.String(required=False)
